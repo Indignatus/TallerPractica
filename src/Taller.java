@@ -5,14 +5,26 @@ import java.util.TreeMap;
 
 public class Taller {
     private Map<Persona, Coche> reparaciones =
-            new TreeMap<>(Comparator.comparing(Persona::getNumSeguridadSocial));
+            new TreeMap<>(Comparator.comparing(Persona::getSeguridadSocial));
 
     public Coche registrarReparacion(Persona persona, Coche coche){
+
+
+
+
+
+
+
     }
 
     public Coche obtenerCoche(Persona persona){
+
+
+
     }
 
     public Set<Persona> obtenerClientes(){
+
+
     }
 }

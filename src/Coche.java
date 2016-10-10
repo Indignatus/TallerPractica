@@ -58,4 +58,29 @@ public class Coche {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Coche coche = (Coche) o;
+
+        if (Double.compare(coche.coste, coste) != 0) return false;
+        if (!matricula.equals(coche.matricula)) return false;
+        if (!marca.equals(coche.marca)) return false;
+        return modelo.equals(coche.modelo);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = matricula.hashCode();
+        result = 31 * result + marca.hashCode();
+        result = 31 * result + modelo.hashCode();
+        temp = Double.doubleToLongBits(coste);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }
