@@ -7,24 +7,18 @@ public class Taller {
     private Map<Persona, Coche> reparaciones =
             new TreeMap<>(Comparator.comparing(Persona::getSeguridadSocial));
 
-    public Coche registrarReparacion(Persona persona, Coche coche){
+    public void registrarReparacion(Persona persona, Coche coche){
 
-
-
-
-
-
-
+        reparaciones.putIfAbsent(persona, coche);
     }
 
     public Coche obtenerCoche(Persona persona){
 
-
-
+        return reparaciones.get(persona);
     }
 
     public Set<Persona> obtenerClientes(){
-
+        return reparaciones.keySet();
 
     }
 }
