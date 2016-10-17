@@ -21,7 +21,7 @@ public class RegistroVehiculos {
 
     public void eliminarVehiculo(String matricula) {
 
-        coches.remove(matricula);
+        coches.removeIf(coche -> coche.getMatricula().equalsIgnoreCase(matricula));
     }
 
     public Optional<Coche> obtenerVehiculoPrecioMax() {
@@ -31,7 +31,9 @@ public class RegistroVehiculos {
 
     public List<Coche> obtenerVehiculosMarca(String marca) {
 
-        return coches.stream().filter(coche -> coche.getMarca().equalsIgnoreCase(marca)).collect(Collectors.toList());
+        return coches.stream().
+                filter(coche -> coche.getMarca().equalsIgnoreCase(marca)).
+                collect(Collectors.toList());
     }
 
     public List<Coche> obtenerTodos() {
